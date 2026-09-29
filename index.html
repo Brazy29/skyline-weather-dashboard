@@ -1,0 +1,485 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#f2f6fc" />
+    <title>Brazy Skyline | Weather Dashboard</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+    <script src="js/script.js" defer></script>
+  </head>
+  <body>
+    <div class="app-shell">
+      <button
+        class="menu-scrim"
+        id="menu-scrim"
+        aria-label="Close navigation"
+      ></button>
+      <aside class="sidebar" id="sidebar" aria-label="Main navigation">
+        <div class="sidebar-header">
+          <a class="brand" href="#dashboard" aria-label="Skyline dashboard">
+            <span class="brand-mark" aria-hidden="true"
+              ><svg class="icon-svg" viewBox="0 0 24 24">
+                <path
+                  d="M12 3v2m0 14v2M4.9 4.9l1.4 1.4m11.4 11.4 1.4 1.4M3 12h2m14 0h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"
+                />
+                <circle cx="12" cy="12" r="4" />
+                <path
+                  d="M5 18h13a3 3 0 0 0 .2-6A6.5 6.5 0 0 0 6 13.5 2.5 2.5 0 0 0 5 18Z"
+                /></svg
+            ></span>
+            <span>brazy skyline<span class="brand-period">.</span></span>
+          </a>
+          <button
+            class="icon-button sidebar-close-button"
+            id="sidebar-close-button"
+            type="button"
+            aria-label="Close navigation"
+            title="Close navigation"
+          >
+            <svg class="icon-svg" aria-hidden="true">
+              <path d="m6 6 12 12M18 6 6 18" />
+            </svg>
+          </button>
+        </div>
+        <p class="nav-caption">WORKSPACE</p>
+        <nav class="side-nav">
+          <a class="nav-link active" href="#dashboard"
+            ><span class="nav-icon" aria-hidden="true"
+              ><svg class="icon-svg">
+                <rect x="3" y="3" width="8" height="8" rx="1" />
+                <rect x="13" y="3" width="8" height="5" rx="1" />
+                <rect x="13" y="10" width="8" height="11" rx="1" />
+                <rect x="3" y="13" width="8" height="8" rx="1" /></svg></span
+            >Dashboard</a
+          >
+          <a class="nav-link" href="#forecast"
+            ><span class="nav-icon" aria-hidden="true"
+              ><svg class="icon-svg">
+                <rect x="3" y="5" width="18" height="16" rx="2" />
+                <path d="M16 3v4M8 3v4M3 11h18" /></svg></span
+            >Forecast</a
+          >
+          <a class="nav-link" href="#hourly"
+            ><span class="nav-icon" aria-hidden="true"
+              ><svg class="icon-svg">
+                <circle cx="12" cy="12" r="9" />
+                <path d="M12 7v5l3 2" /></svg></span
+            >Hourly</a
+          >
+          <a class="nav-link" href="#search"
+            ><span class="nav-icon" aria-hidden="true"
+              ><svg class="icon-svg">
+                <circle cx="11" cy="11" r="7" />
+                <path d="m20 20-4-4" /></svg></span
+            >Search</a
+          >
+          <a class="nav-link" href="#favorites"
+            ><span class="nav-icon" aria-hidden="true"
+              ><svg class="icon-svg">
+                <path
+                  d="m12 3 2.8 5.7 6.2.9-4.5 4.4 1.1 6.2-5.6-3-5.6 3 1.1-6.2L3 9.6l6.2-.9L12 3Z"
+                /></svg></span
+            >Favorites</a
+          >
+        </nav>
+        <div class="sidebar-bottom">
+          <div class="sidebar-weather-icon" aria-hidden="true">
+            <svg class="icon-svg">
+              <circle cx="12" cy="12" r="4" />
+              <path
+                d="M12 2v2m0 16v2M4.93 4.93l1.42 1.42m11.3 11.3 1.42 1.42M2 12h2m16 0h2M4.93 19.07l1.42-1.42m11.3-11.3 1.42-1.42"
+              />
+            </svg>
+          </div>
+          <p class="sidebar-greeting">learn more about your weather.</p>
+          <p class="sidebar-note">Your day, forecast with clarity.</p>
+          <span class="sidebar-rule"></span>
+          <p class="sidebar-credit">
+            built by
+            <a
+              href="https://brazyportfolio.netlify.app"
+              target="_blank"
+              rel="noopener noreferrer"
+              >BRAZY</a
+            >.
+          </p>
+        </div>
+      </aside>
+
+      <main class="main-content" id="dashboard">
+        <header class="page-header">
+          <div class="header-title-row">
+            <button
+              class="icon-button menu-button"
+              id="menu-button"
+              aria-label="Open navigation"
+              aria-expanded="false"
+            >
+              <svg class="icon-svg menu-open-icon">
+                <path d="M4 6h16M4 12h16M4 18h16" />
+              </svg>
+              <svg class="icon-svg menu-close-icon" aria-hidden="true">
+                <path d="m6 6 12 12M18 6 6 18" />
+              </svg>
+            </button>
+            <div>
+              <p class="eyebrow">YOUR WEATHER, AT A GLANCE</p>
+              <h1>Weather Dashboard</h1>
+              <p class="page-subtitle">
+                Real time weather information, anytime, anywhere.
+              </p>
+            </div>
+            <div class="header-actions">
+              <button
+                class="icon-button"
+                id="refresh-button"
+                aria-label="Refresh weather"
+                title="Refresh weather"
+              >
+                <svg class="icon-svg">
+                  <path d="M20 7v5h-5M4 17v-5h5" />
+                  <path
+                    d="M5.6 9a7 7 0 0 1 11.6-2L20 12M4 12l2.8 5a7 7 0 0 0 11.6-2"
+                  />
+                </svg>
+              </button>
+              <div
+                class="unit-toggle"
+                id="settings"
+                role="group"
+                aria-label="Temperature unit"
+              >
+                <button
+                  type="button"
+                  class="unit-button selected"
+                  data-unit="celsius"
+                  aria-pressed="true"
+                >
+                  °C
+                </button>
+                <button
+                  type="button"
+                  class="unit-button"
+                  data-unit="fahrenheit"
+                  aria-pressed="false"
+                >
+                  °F
+                </button>
+              </div>
+            </div>
+          </div>
+          <div class="header-tools" id="search">
+            <form class="search-form" id="search-form" role="search">
+              <span class="search-icon" aria-hidden="true"
+                ><svg class="icon-svg">
+                  <circle cx="11" cy="11" r="7" />
+                  <path d="m20 20-4-4" /></svg
+              ></span>
+              <label class="visually-hidden" for="city-search"
+                >Search for a city</label
+              >
+              <input
+                id="city-search"
+                type="search"
+                placeholder="Search for a city..."
+                autocomplete="off"
+              />
+              <button class="search-submit" type="submit">Search</button>
+              <div
+                class="search-results"
+                id="search-results"
+                role="listbox"
+                aria-label="Matching locations"
+                hidden
+              ></div>
+            </form>
+            <button class="location-button" id="location-button">
+              <span class="location-icon" aria-hidden="true"
+                ><svg class="icon-svg">
+                  <path d="M20 10c0 5-8 11-8 11S4 15 4 10a8 8 0 1 1 16 0Z" />
+                  <circle cx="12" cy="10" r="2.5" /></svg
+              ></span>
+              Use My Location
+            </button>
+          </div>
+          <div
+            class="notice"
+            id="notice"
+            role="status"
+            aria-live="polite"
+            hidden
+          >
+            <span class="notice-text" id="notice-text"></span>
+            <button id="retry-button" type="button" hidden>Retry</button>
+            <button
+              class="notice-close"
+              id="notice-close"
+              type="button"
+              aria-label="Dismiss message"
+            >
+              <svg class="icon-svg"><path d="m18 6-12 12M6 6l12 12" /></svg>
+            </button>
+          </div>
+        </header>
+
+        <div class="dashboard-content">
+          <section
+            class="current-weather"
+            aria-labelledby="current-city"
+            aria-busy="false"
+          >
+            <div class="weather-photo" aria-hidden="true"></div>
+            <div class="weather-shade" aria-hidden="true"></div>
+            <div class="current-topline">
+              <div class="place-label">
+                <span class="place-icon" aria-hidden="true"
+                  ><svg class="icon-svg">
+                    <path d="M20 10c0 5-8 11-8 11S4 15 4 10a8 8 0 1 1 16 0Z" />
+                    <circle cx="12" cy="10" r="2.5" /></svg
+                ></span>
+                <h2 id="current-city">Search a city</h2>
+                <span class="country-code" id="current-country"></span>
+              </div>
+              <div class="current-meta">
+                <span class="date-pill" id="current-date">Live forecast</span
+                ><span class="updated-label" id="last-updated"
+                  >Waiting for a location</span
+                >
+              </div>
+            </div>
+            <div class="current-main">
+              <div class="weather-symbol" id="current-icon" aria-hidden="true">
+                <svg class="icon-svg weather-svg">
+                  <circle cx="12" cy="12" r="4" />
+                  <path
+                    d="M12 2v2m0 16v2M4.93 4.93l1.42 1.42m11.3 11.3 1.42 1.42M2 12h2m16 0h2M4.93 19.07l1.42-1.42m11.3-11.3 1.42-1.42"
+                  />
+                </svg>
+              </div>
+              <div class="temperature-block">
+                <p class="current-temperature" id="current-temperature">
+                  --<span>°C</span>
+                </p>
+                <p class="current-condition" id="current-condition">
+                  Search for a location to begin
+                </p>
+                <div class="current-details">
+                  <span>Feels like <strong id="feels-like">--</strong></span
+                  ><span class="detail-divider"></span>
+                  <span>Humidity <strong id="current-humidity">--</strong></span
+                  ><span class="detail-divider"></span>
+                  <span>Wind <strong id="current-wind">--</strong></span>
+                </div>
+              </div>
+            </div>
+            <button
+              class="favorite-button"
+              id="favorite-button"
+              type="button"
+              aria-pressed="false"
+              disabled
+            >
+              <span aria-hidden="true"
+                ><svg class="icon-svg">
+                  <path
+                    d="m12 3 2.8 5.7 6.2.9-4.5 4.4 1.1 6.2-5.6-3-5.6 3 1.1-6.2L3 9.6l6.2-.9L12 3Z"
+                  /></svg></span
+              ><span id="favorite-label">Add to Favorites</span>
+            </button>
+          </section>
+
+          <section
+            class="panel forecast-panel"
+            id="forecast"
+            aria-labelledby="forecast-title"
+          >
+            <div class="section-heading">
+              <div class="heading-label">
+                <span class="heading-icon" aria-hidden="true"
+                  ><svg class="icon-svg">
+                    <rect x="3" y="5" width="18" height="16" rx="2" />
+                    <path d="M16 3v4M8 3v4M3 11h18" /></svg
+                ></span>
+                <div>
+                  <p class="eyebrow">THE WEEK AHEAD</p>
+                  <h2 id="forecast-title">5-Day Forecast</h2>
+                </div>
+              </div>
+              <span class="section-aside" id="forecast-location"
+                >Daily outlook</span
+              >
+            </div>
+            <div class="forecast-grid" id="forecast-grid">
+              <p class="empty-copy">
+                Your five-day outlook will appear after a location is selected.
+              </p>
+            </div>
+          </section>
+
+          <section
+            class="panel hourly-panel"
+            id="hourly"
+            aria-labelledby="hourly-title"
+          >
+            <div class="section-heading">
+              <div class="heading-label">
+                <span class="heading-icon" aria-hidden="true"
+                  ><svg class="icon-svg">
+                    <circle cx="12" cy="12" r="9" />
+                    <path d="M12 7v5l3 2" /></svg
+                ></span>
+                <div>
+                  <p class="eyebrow">PLAN THE NEXT FEW HOURS</p>
+                  <h2 id="hourly-title">Hourly Forecast</h2>
+                </div>
+              </div>
+              <span class="section-aside">Next 12 hours</span>
+            </div>
+            <div
+              class="hourly-list"
+              id="hourly-list"
+              tabindex="0"
+              aria-label="Hourly forecast"
+            >
+              <p class="empty-copy">Hourly conditions will appear here.</p>
+            </div>
+          </section>
+
+          <section class="panel trend-panel" aria-labelledby="trend-title">
+            <div class="section-heading trend-heading">
+              <div class="heading-label">
+                <span class="heading-icon" aria-hidden="true"
+                  ><svg class="icon-svg">
+                    <path d="M3 17c3-8 5-8 8 0s5 8 10-6" /></svg
+                ></span>
+                <div>
+                  <p class="eyebrow">A CLOSER LOOK</p>
+                  <h2 id="trend-title">Temperature Trend</h2>
+                </div>
+              </div>
+              <div
+                class="chart-toggle"
+                role="group"
+                aria-label="Trend chart metric"
+              >
+                <button
+                  type="button"
+                  class="chart-button selected"
+                  data-metric="temperature"
+                  aria-pressed="true"
+                >
+                  Temperature
+                </button>
+                <button
+                  type="button"
+                  class="chart-button"
+                  data-metric="humidity"
+                  aria-pressed="false"
+                >
+                  Humidity
+                </button>
+              </div>
+            </div>
+            <div class="chart-wrap">
+              <canvas
+                id="trend-chart"
+                role="img"
+                aria-label="Hourly temperature trend chart"
+              ></canvas>
+              <p class="empty-copy chart-empty">
+                Chart data will appear after a location is selected.
+              </p>
+            </div>
+          </section>
+
+          <section class="panel stats-panel" aria-labelledby="stats-title">
+            <div class="section-heading">
+              <div class="heading-label">
+                <span class="heading-icon" aria-hidden="true"
+                  ><svg class="icon-svg">
+                    <path
+                      d="M12 3v18M3 12h18m-15.4-6.4 12.8 12.8m0-12.8L5.6 18.4"
+                    />
+                    <circle cx="12" cy="12" r="3" /></svg
+                ></span>
+                <div>
+                  <p class="eyebrow">CONDITIONS RIGHT NOW</p>
+                  <h2 id="stats-title">Weather Details</h2>
+                </div>
+              </div>
+              <span class="section-aside">Live measurements</span>
+            </div>
+            <div class="stats-grid" id="stats-grid">
+              <p class="empty-copy">Weather measurements will appear here.</p>
+            </div>
+          </section>
+
+          <section class="lower-grid">
+            <div
+              class="panel saved-panel"
+              id="favorites"
+              aria-labelledby="favorites-title"
+            >
+              <div class="section-heading compact-heading">
+                <div class="heading-label">
+                  <span class="heading-icon" aria-hidden="true"
+                    ><svg class="icon-svg">
+                      <path
+                        d="m12 3 2.8 5.7 6.2.9-4.5 4.4 1.1 6.2-5.6-3-5.6 3 1.1-6.2L3 9.6l6.2-.9L12 3Z"
+                      /></svg
+                  ></span>
+                  <div>
+                    <p class="eyebrow">YOUR PLACES</p>
+                    <h2 id="favorites-title">Favorites</h2>
+                  </div>
+                </div>
+              </div>
+              <div class="saved-list" id="favorites-list">
+                <p class="empty-copy">
+                  Save a location with the star to keep it close.
+                </p>
+              </div>
+            </div>
+            <div class="panel saved-panel" aria-labelledby="recent-title">
+              <div class="section-heading compact-heading">
+                <div class="heading-label">
+                  <span class="heading-icon" aria-hidden="true"
+                    ><svg class="icon-svg">
+                      <circle cx="12" cy="12" r="9" />
+                      <path d="M12 7v5l3 2" /></svg
+                  ></span>
+                  <div>
+                    <p class="eyebrow">QUICK RETURN</p>
+                    <h2 id="recent-title">Recent Locations</h2>
+                  </div>
+                </div>
+                <button
+                  id="clear-recent"
+                  class="text-button"
+                  type="button"
+                  hidden
+                >
+                  Clear
+                </button>
+              </div>
+              <div class="saved-list" id="recent-list">
+                <p class="empty-copy">Your searched places will show here.</p>
+              </div>
+            </div>
+          </section>
+          <footer class="page-footer">
+            <span>Brazy Skyline Weather</span
+            ><span>Live data by Open-Meteo</span>
+          </footer>
+        </div>
+      </main>
+    </div>
+  </body>
+</html>
